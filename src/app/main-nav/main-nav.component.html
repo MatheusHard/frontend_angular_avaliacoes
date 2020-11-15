@@ -22,10 +22,10 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <span>projeto-angular-avaliacoes-nav</span>
+      <span>DASHBOARD</span>
       <span class="spacer"></span>
-      <a mat-list-item href="#">Home</a>
-      <a mat-list-item href="#">Cidade</a>
+      <a mat-list-item href="home">Home</a>
+      <a mat-list-item routerLink="/cidades/list">Cidade</a>
       <a mat-list-item href="#">Avaliações</a>
     </mat-toolbar>
     <!-- Add Content Here -->

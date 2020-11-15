@@ -1,0 +1,51 @@
+<app-main-nav>
+    <mat-card class="example-card">
+        <mat-card-header>
+          <mat-card-title>Cidades</mat-card-title>
+          <mat-card-subtitle>Listando Cidades</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+         <!--Set Table Here-->
+         <mat-form-field>
+            <mat-label>Pesquisa</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Jose" #input>
+          </mat-form-field>
+          
+          <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort>
+          <title>TESTES</title>
+              <!-- Cidade Column -->
+              <ng-container matColumnDef="cidade">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Cidade </th>
+                <td mat-cell *matCellDef="let row"> {{row.descricao_cidade}} </td>
+              </ng-container>
+          
+              <!-- UF Column -->
+              <ng-container matColumnDef="uf">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> UF </th>
+                <td mat-cell *matCellDef="let row"> {{row.uf_id}} </td>
+              </ng-container>
+
+                 <!-- Data Column -->
+                 <ng-container matColumnDef="data">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Data </th>
+                  <td mat-cell *matCellDef="let row"> {{row.createAt}} </td>
+                </ng-container>
+          
+            
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          
+              <!-- Row shown when there is no matching data. -->
+              <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">Pesquisa invalida!!! Verifique o campo:  "{{input.value}}"</td>
+              </tr>
+            </table>
+          
+           <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+          </div>  
+         
+        </mat-card-content>
+       
+      </mat-card>
+</app-main-nav>
