@@ -1,8 +1,8 @@
 export interface Cidade{
     
-    id: string;
+    uf_id_: string;
     descricao_cidade: string;
     uf_id: number;
-    createAt: string;
+   // createAt: string;
 
 }

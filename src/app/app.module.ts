@@ -17,9 +17,10 @@ import { MatInputModule } from '@angular/material/input';
 import { CidadeListComponent } from './cidade/cidade-list/cidade-list.component';
 import { CidadeUpdateComponent } from './cidade/cidade-update/cidade-update.component';
 import { CidadeCreateComponent } from './cidade/cidade-create/cidade-create.component';
-import {MatTableModule} from '@angular/material/table';
+import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
-
+import { CidadeService } from '../app/services/cidade.service';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -45,10 +46,11 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    HttpClientModule
     
   ],
-  providers: [],
+  providers: [CidadeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
