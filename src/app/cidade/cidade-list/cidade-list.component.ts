@@ -12,7 +12,7 @@ import { CidadeService } from 'src/app/services/cidade.service';
 })
 export class CidadeListComponent implements OnInit {
 
-  displayedColumns: string[] = ['cidade', 'uf', 'data'];
+  displayedColumns: string[] = ['cidade_uf', 'editar', 'excluir'];
   
  cidades: Cidade[];
   dataSource: MatTableDataSource<Cidade>;
@@ -27,12 +27,11 @@ export class CidadeListComponent implements OnInit {
 
   ngOnInit():void{
  
-  this.cidadeService.getCidades().subscribe(res =>{
+    this.cidadeService.getCidades().subscribe(res =>{
     this.cidades = res;
-//    console.log(this.cidades);
     this.dataSource = new MatTableDataSource(this.cidades);
 
-
+    this.ngAfterViewInit();
   })  
      
   
@@ -43,6 +42,7 @@ export class CidadeListComponent implements OnInit {
     /*********ngAfterViewInit**********/
 
   ngAfterViewInit() {
+    console.log(this.dataSource.paginator);
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
   }

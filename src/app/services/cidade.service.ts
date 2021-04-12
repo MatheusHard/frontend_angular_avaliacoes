@@ -13,7 +13,7 @@ import { HttpClient, HttpHeaders  } from '@angular/common/http';
 export class CidadeService {
 
 
-  private urlCidadesUfs: string = 'http://192.168.1.8:3003/api/cidade/list';
+  private urlCidadesUfs: string = 'http://localhost:3003/api/cidade/list';
   /*
   cidades: Cidade[] = [
 

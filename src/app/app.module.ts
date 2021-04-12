@@ -21,6 +21,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { CidadeService } from '../app/services/cidade.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -47,7 +49,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatTableModule,
     MatPaginatorModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
     
   ],
   providers: [CidadeService],

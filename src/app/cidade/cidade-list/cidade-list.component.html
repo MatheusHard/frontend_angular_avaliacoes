@@ -14,23 +14,31 @@
           <div class="mat-elevation-z8">
             <table mat-table [dataSource]="dataSource" matSort>
           <title>TESTES</title>
-              <!-- Cidade Column -->
-              <ng-container matColumnDef="cidade">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> Cidade </th>
-                <td mat-cell *matCellDef="let row"> {{row.descricao_cidade}} </td>
+              
+              <!-- Cidade & UF Column -->
+              <ng-container matColumnDef="cidade_uf">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Cidade/UF </th>
+                <td mat-cell *matCellDef="let row"> {{row.descricao_cidade}} / {{row.uf.descricao_uf}} </td>
+
               </ng-container>
-          
-              <!-- UF Column -->
-              <ng-container matColumnDef="uf">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header> UF </th>
-                <td mat-cell *matCellDef="let row"> {{row.uf_id}} </td>
+                <!-- Editar Column-->
+                <ng-container matColumnDef="editar">
+                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Editar </th>
+                    <td mat-cell *matCellDef="let row">
+                      <mat-icon aria-hidden="false" aria-label="Example home icon">edit</mat-icon>
+                    </td>
+  
+                </ng-container>
+                  <!-- Excluir Column -->
+              <ng-container matColumnDef="excluir">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Excluir </th>
+                  <td mat-cell *matCellDef="let row">
+                    <mat-icon aria-hidden="false" aria-label="Example home icon">delete</mat-icon>
+                  </td>
+                
               </ng-container>
 
-                 <!-- Data Column -->
-                 <ng-container matColumnDef="data">
-                  <th mat-header-cell *matHeaderCellDef mat-sort-header> Data </th>
-                  <td mat-cell *matCellDef="let row"> {{row._id}} </td>
-                </ng-container>
+               
           
             
               <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
