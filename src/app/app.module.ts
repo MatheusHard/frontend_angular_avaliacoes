@@ -22,6 +22,8 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { CidadeService } from '../app/services/cidade.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 
@@ -50,7 +52,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatTableModule,
     MatPaginatorModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatSelectModule
     
   ],
   providers: [CidadeService],
