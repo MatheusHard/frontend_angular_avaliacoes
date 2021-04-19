@@ -4,6 +4,8 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
 import { CidadeService } from 'src/app/services/cidade.service';
+import { CidadeCreateComponent } from '../cidade-create/cidade-create.component';
+import { MatDialog } from "@angular/material/dialog";
 
 @Component({
   selector: 'app-cidade-list',
@@ -20,7 +22,7 @@ export class CidadeListComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-    constructor(private cidadeService: CidadeService){
+    constructor(private cidadeService: CidadeService, public dialog: MatDialog){
      // Assign the data to the data source for the table to render
     // this.dataSource = new MatTableDataSource(citys);
   }
@@ -57,7 +59,12 @@ export class CidadeListComponent implements OnInit {
     }
   }
   
- 
+ /*************OPEN ADD CIDADE*************/
+
+ openDialogAddCidade(){
+  this.dialog.open(CidadeCreateComponent);
+
+ }
   
 }
 
