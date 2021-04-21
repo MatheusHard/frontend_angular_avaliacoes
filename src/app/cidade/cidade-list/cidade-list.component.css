@@ -26,6 +26,9 @@
 
   .example-button-container {
     display: flex;
-    justify-content: center;
+   justify-content: center;
     width: 120px;
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
   }

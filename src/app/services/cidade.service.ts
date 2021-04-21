@@ -14,6 +14,8 @@ export class CidadeService {
   private url: string = 'http://localhost:3003/'; 
   private urlCidadesUfs: string = 'api/cidade/list';
   private urlUfs: string = 'api/uf/list';
+  private urlCreateCidade: string = 'api/cidade/add';
+
 
   constructor(private http: HttpClient) { }
 
@@ -42,6 +44,10 @@ public getCidades(): Observable<any> {
 
 public getEstados(): Observable<any> {
   return this.http.get(`${this.url}${this.urlUfs}`).pipe(catchError(this.handleError));
+}
+
+public createCidade(cidade: Cidade): Observable<any> {
+  return this.http.post(`${this.url}${this.urlCreateCidade}`, cidade).pipe(catchError(this.handleError));
 }
 
 

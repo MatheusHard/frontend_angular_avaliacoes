@@ -57,7 +57,7 @@ export class CidadeCreateComponent implements OnInit {
 
 formCidade = new FormGroup({
 
-descricao_cidade_form: new FormControl('', Validators.required),
+descricao_cidade: new FormControl('', Validators.required),
 selectFormControlDesc: new FormControl('', Validators.required)
 })
 
@@ -75,7 +75,9 @@ ngOnInit():void{
 
 }
 createCidade():void{
+const city = this.formCidade.value;
 
+console.log(city);
 }
 
 
