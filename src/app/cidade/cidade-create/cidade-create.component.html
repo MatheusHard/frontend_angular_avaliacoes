@@ -10,13 +10,13 @@
   <!--Select Estados-->
   <mat-form-field class="form-field" appearance="outline">
     <mat-label>Estado</mat-label>
-      <mat-select formControlName= "selectFormControlDesc" required>
+      <mat-select formControlName= "select_uf" required>
         <mat-option>--</mat-option>
         <mat-option *ngFor="let uf of ufs" [value]="uf">
         {{uf.descricao}}
         </mat-option>
       </mat-select>
-    <mat-error *ngIf="formCidade.get('selectFormControlDesc').touched && formCidade.get('selectFormControlDesc').errors?.required">Selecione o Estado</mat-error>
+    <mat-error *ngIf="formCidade.get('select_uf').touched && formCidade.get('select_uf').errors?.required">Selecione o Estado</mat-error>
   </mat-form-field>
 
   <button [disabled]="formCidade.status != 'VALID'" mat-raised-button color="primary">Salvar</button>

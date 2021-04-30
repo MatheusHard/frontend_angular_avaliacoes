@@ -4,6 +4,8 @@ import { Uf } from 'src/app/interfaces/uf';
 import { CidadeService } from 'src/app/services/cidade.service';
 import { Cidade } from '../../interfaces/cidade';
 import {MatDialog} from '@angular/material/dialog';
+import { Router } from '@angular/router';
+
 
 
 
@@ -46,6 +48,7 @@ export class CidadeCreateComponent implements OnInit {
 
   ufs: Uf[];
   cidades: Cidade[];
+  cidade: Cidade;
 
  /* animals: Animal[] = [
     {name: 'Dog', sound: 'Woof!'},
@@ -58,11 +61,11 @@ export class CidadeCreateComponent implements OnInit {
 formCidade = new FormGroup({
 
 descricao_cidade: new FormControl('', Validators.required),
-selectFormControlDesc: new FormControl('', Validators.required)
+select_uf: new FormControl('', Validators.required)
 })
 
 
-constructor(private cidadeService: CidadeService){}
+constructor(private cidadeService: CidadeService, private router: Router){}
 
 ngOnInit():void{
  
@@ -74,10 +77,26 @@ ngOnInit():void{
 
 
 }
-createCidade():void{
-const city = this.formCidade.value;
+createCidade(): void{
 
-console.log(city);
+this.cidadeService.createCidade(this.getCidade()).subscribe(
+  response => this.router.navigate(['cidades/list'])
+)
+}
+
+getCidade(){
+
+  const {descricao_cidade, select_uf} = this.formCidade.value;
+  const uf = select_uf;
+  const { uf_id, _id } = uf;
+
+  return {
+   
+    "descricao_cidade": descricao_cidade,
+    "uf_id": uf_id,
+    "uf_id_": _id
+  }
+
 }
 
 

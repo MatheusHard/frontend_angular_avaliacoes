@@ -19,23 +19,16 @@ export class CidadeService {
 
   constructor(private http: HttpClient) { }
 
-  private headers: HttpHeaders = new HttpHeaders({
+  private httpHeaders: HttpHeaders = new HttpHeaders({
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Credentials': 'true',
     'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
     'Access-Control-Allow-Headers': 'Origin',
+    'Content-Type':'application/json'
   });
 
+//private httpHeaders = new HttpHeaders({'Content-Type':'application/json'});
 
-
-/*getCidades(): Observable<Cidade[]>{
-  return this.http.get(this.urlCidadesUfs).pipe(
-    map((response) => response as Cidade[])
-  );
-}
-getCidades(): Observable<Cidade[]>{
-  return this.http.get<Cidade[]>(this.urlCidadesUfs);
-}*/
 
 public getCidades(): Observable<any> {
   return this.http.get(`${this.url}${this.urlCidadesUfs}`).pipe(catchError(this.handleError));
@@ -47,11 +40,10 @@ public getEstados(): Observable<any> {
 }
 
 public createCidade(cidade: Cidade): Observable<any> {
+  //return this.http.post(`${this.url}${this.urlCreateCidade}`, cidade, {headers:this.httpHeaders}).pipe(catchError(this.handleError));
   return this.http.post(`${this.url}${this.urlCreateCidade}`, cidade).pipe(catchError(this.handleError));
+
 }
-
-
-
 
 
 protected handleError(error: any): Observable<any> {
