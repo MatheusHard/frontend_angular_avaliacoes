@@ -11,7 +11,7 @@ import { HttpClient, HttpHeaders  } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CidadeService {
-  private url: string = 'http://localhost:3003/'; 
+  private url: string = 'https://avaliacoes-backend.herokuapp.com/'; 
   private urlCidadesUfs: string = 'api/cidade/list';
   private urlUfs: string = 'api/uf/list';
   private urlCreateCidade: string = 'api/cidade/add';
